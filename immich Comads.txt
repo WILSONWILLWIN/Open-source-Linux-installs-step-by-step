@@ -1,0 +1,73 @@
+[Commands to install immich if you do not Have an Ubuntu or Debian server Go to this video to help you out and learn about more cool software https://youtu.be/q-wyyXhjcGs?si=ecxP7gbMn3zG0Awu   By the way all these commands can be done through SSH]
+
+(Use this command to update all your packages on your system and make sure your system is up to date)
+1. sudo apt update && sudo apt upgrade -y
+
+(If it does not open the file with this command it means it doesn't exist)
+2. cd /DATA/AppData
+
+(If the folder didn't exist when running command (2) run this to make it)
+3. mkdir -p Data/AppData/immich
+
+(This is the command to install docker first on your system This could take 5 to 20 minutes)
+4. curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh get-docker.sh
+
+(Add docker to your user)
+5. sudo usermod -aG docker $USER
+
+(Just to check your docker version and make sure you're logged in)
+6. docker --version
+
+(It's always good to reboot your system after installing docker so that's what we're going to do)
+7. Reboot
+
+(This command allows you to log in as the root user so you're able to edit env files)
+8. sudo -i
+
+(Then you're going to need to enter your directory where you want to install immich The one below is the one I recommend it's easy to format)
+9. cd /DATA/AppData/immich
+
+(This command allows you to get all the official docker compose in a file that's already coded and formatted for you)
+10. wget -O docker-compose.yml https://github.com/immich-app/immich/releases/latest/download/docker-compose.yml
+
+(This command allows you to get and configure your env file so your database is configured correctly)
+11. wget -O .env https://github.com/immich-app/immich/releases/latest/download/example.env
+
+(Then this command allows you to enter the env file and configure it)
+12. vim .env
+
+(This is how you enter editor mode in the vim/env file)
+13. i and Enter At the same time and then fix anything you changed
+
+(Then when you get into the env file you're going to want to change some values that you want like the password and stuff)
+14. DB_PASSWORD=coolimichpassword           #<This is the line where you change your password
+    # TZ=Etc/UTC                           #<This is the line where you change your time zone
+    UPLOAD_LOCATION=./library             #<This is the line where you change upload location
+    DB_DATA_LOCATION=./postgres          #<This is the line where you can change where your-                              photos are stored if you want
+
+(Then to exit the file you do this)
+15. Click Escape on your keyboard Then type a colon : then Type wq And click enter
+
+(Then do this command to make sure that the file was written)
+16. ls -a
+
+(Then run this command to start up your docker containers)
+17. docker compose up -d
+
+(Then run this command to see your server's IP If you do not know it)
+18. ip -a
+
+(Then do this to make sure that your docker containers are up and make sure that you see immich on the list)
+19. docker ps
+
+(Then go to your servers IP at port 2283 Or at a domain name if you have one and login This is also the IP address that you will use to log into the mobile app on your home network)
+20. http://Your-server's-IP-address:2283
+
+21. Now just look around should be pretty self explanatory and you know have fun Also note that if you see any emv Replace it env Not like in the commands but like in the parentheses And I hope the documentation gets better and I hope you have a great day and here's also a link to the video  
+
+
+
+
+
+
