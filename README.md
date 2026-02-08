@@ -1,7 +1,8 @@
-# Frigate-Install-StepByStep
-A step by step video and text on how to install Frigate NVR
+# Open-source-Linux-installs-step-by-step
+A step by step video and text on how to install Open source Linux software
 
 See the video at https://youtu.be/q-wyyXhjcGs  To help with this documentation 
+and 
 
 To view the documentation just go in the text file that is in the GitHub and read it or Download it!
 
